@@ -77,6 +77,19 @@ body {
 .title:hover::after {
     animation: right-ball 0.5s linear forwards;
 }
+.up, .down {
+    position: absolute;
+}
+.up {
+    top: 200px;
+    right: 0;
+}
+.down {
+    bottom: 180px;
+    left: 0;
+}
+/* End Global Rules */
+/* Start Animation */
 @keyframes left-ball {
     0% {
         left: -30px;
@@ -113,18 +126,66 @@ body {
         border-radius: 0;
     }
 }
-.up, .down {
-    position: absolute;
+@keyframes image-motion {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: -50px
+    }
 }
-.up {
-    top: 200px;
-    right: 0;
+@keyframes arrow-down {
+    0% {
+        transform: translateY(0);
+    }   
+    20% {
+        transform: translateY(0);
+    } 
+    40% {
+        transform: translateY(-15px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+    80% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
-.down {
-    bottom: 180px;
-    left: 0;
+@keyframes arrow-right {
+    to {
+        transform: translateX(10px);
+    }
 }
-/* End Global Rules */
+@keyframes shine {
+    0% {
+        width: 0%;
+        height: 0%; 
+    }
+    50% {
+        width: 150%;
+        height: 150%;
+    }
+    100% {
+        width: 150%;
+        height: 150%;
+        opacity: 0;
+    }
+}
+@keyframes background {
+    50% {
+        background-image: url(../Images/discount-background2.jpg);
+    }
+    100% {
+        background-image: url(../Images/discount-background1.jpg);
+    }
+}
+/* End Animation */
 /* Start Header */
 .header {
     background-color: white;
@@ -244,14 +305,6 @@ body {
     width: 600px;
     animation: image-motion 2.5s infinite linear alternate;
 }
-@keyframes image-motion {
-    0% {
-        top: 0;
-    }
-    100% {
-        top: -50px
-    }
-}
 @media (max-width: 767px) {
     .welcome-sec .container .text h1 {
         font-size: 28px;
@@ -286,29 +339,6 @@ body {
     animation-iteration-count: infinite;
     animation-duration: 1.5s;
     transform: translateY(0);
-}
-@keyframes arrow-down {
-    0% {
-        transform: translateY(0);
-    }   
-    20% {
-        transform: translateY(0);
-    } 
-    40% {
-        transform: translateY(-15px);
-    }
-    50% {
-        transform: translateY(0);
-    }
-    60% {
-        transform: translateY(-15px);
-    }
-    80% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(0);
-    }
 }
 /* End Welcome Section */
 /* Start Article Section */
@@ -365,11 +395,6 @@ body {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
-@keyframes arrow-right {
-    to {
-        transform: translateX(10px);
-    }
-}
 /* End Article Section */
 /* Start Gallery Section */
 .gallery {
@@ -402,21 +427,6 @@ body {
 }
 .gallery .container .card:hover::after {
     animation: shine 1s;
-}
-@keyframes shine {
-    0% {
-        width: 0%;
-        height: 0%; 
-    }
-    50% {
-        width: 150%;
-        height: 150%;
-    }
-    100% {
-        width: 150%;
-        height: 150%;
-        opacity: 0;
-    }
 }
 .gallery .container img {
     width: 100%;
@@ -1380,14 +1390,6 @@ body {
     background-repeat: no-repeat;
     position: relative;
     animation: background 10s linear infinite;
-}
-@keyframes background {
-    50% {
-        background-image: url(../Images/discount-background2.jpg);
-    }
-    100% {
-        background-image: url(../Images/discount-background1.jpg);
-    }
 }
 .discount .left-side::after {
     content: "";
