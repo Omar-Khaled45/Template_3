@@ -198,6 +198,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 .header .container .logo {
     text-decoration: none;
@@ -260,6 +261,71 @@ body {
     .header .container .main-menu {
         margin: 0 auto;
     }
+}
+.header .container .main-menu .other-links {
+    display: flex;
+    gap: 40px;
+    background-color: white;
+    border-bottom: 3px solid var(--mainColor);
+    padding: 30px;
+    width: 100%;
+    position: absolute;
+    top: calc(100% + 50px);
+    left: 0;
+    opacity: 0;
+    transition: var(--transition);
+}
+.header .container .main-menu li:last-child:hover .other-links {
+    opacity: 1;
+    z-index: 1;
+    top: calc(100% + 1px);
+}
+.header .container .main-menu .other-links img {
+    max-width: 100%;
+}
+@media (max-width: 991px) {
+    .header .container .main-menu .other-links {
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+    }
+    .header .container .main-menu .other-links img {
+        display: none;
+    }
+}
+.header .container .main-menu .other-links ul {
+    list-style: none;
+    flex: 1;
+}
+.header .container .main-menu .other-links ul li a {
+    text-decoration: none;
+    color: var(--mainColor);
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 700;
+    display: block;
+    text-align: start;
+    position: relative;
+}
+.header .container .main-menu .other-links ul li a::before {
+    content: "";
+    background-color: #f2f2f2;
+    height: 100%;
+    width: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: var(--transition);
+}
+.header .container .main-menu .other-links ul li a:hover::before {
+    width: 100%;
+}
+.header .container .main-menu .other-links ul li:not(:last-child) a {
+    border-bottom: 1px solid #dfdfdf;
+}
+.header .container .main-menu .other-links ul li a i {
+    margin-right: 10px;
 }
 /* Start Welcome Section */
 .welcome-sec {
