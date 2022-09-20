@@ -397,7 +397,7 @@ body {
     color: var(--mainColor);
     position: absolute;
     left: 50%;
-    bottom: 20px;
+    bottom: 15px;
     transform: translateX(-50%);
 }
 .welcome-sec .container .arrow-down i {
